@@ -1,35 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 export default function CountdownItem(props) {
-  const [TaskName, setTaskName] = useState("Default Task")
-  const [TaskEditing, setTaskEditing] = useState(false)
+  const [taskName, settaskName] = useState("Default Task")
+  const [taskEditing, settaskEditing] = useState(false)
+  const inputRef = useRef(null)
 
-  function ChangeName(event) {
-    setTaskEditing(true)
-    console.log('clicky click')
+  // Need to set the focus on the text box
+  function ClickTask(event) {
+    settaskEditing(true)
   }
 
+  // Validate the text box, React controlled form
   function OnTextBoxChange(event) {
-    setTaskName(event.target.value)
+    settaskName(event.target.value)
   }
 
+
+  // TODO: Don't allow an empty box!
   function onKeyPress(event) {
     const key = event.which || event.keyCode
-    if (key === 13 ) {
-      setTaskEditing(false)
+    if (key === 13 ) { // Hit enter or return
+      settaskEditing(false)
     }
   }
 
+  // If you click away it'll commit the value
   function onTextEditorBlur(event) {
-    setTaskEditing(false)
+    settaskEditing(false)
   }
 
-  let editor = <input value={TaskName} onChange={OnTextBoxChange} onKeyPress={onKeyPress} onBlur={onTextEditorBlur}/>
-  let textDisplay = <p>{TaskName}</p>
+  // Check the task name is being edited or not, focus the input if it is
+  useEffect(() => {
+    if (taskEditing) {
+      inputRef.current.select()
+    }
+  }, [taskEditing])
+
+  const editor = <input value={taskName} ref={inputRef} onChange={OnTextBoxChange} onKeyPress={onKeyPress} onBlur={onTextEditorBlur}/>
+  const textDisplay = <p>{taskName}</p>
 
   return (
     <div>
-      <div onClick={(event) => {ChangeName(event)}}>{TaskEditing ? editor : textDisplay}</div>
+      <div onClick={(event) => {ClickTask(event)}}>{taskEditing ? editor : textDisplay}</div>
       <h3>Time left: XX:XX</h3>
     </div>
   )

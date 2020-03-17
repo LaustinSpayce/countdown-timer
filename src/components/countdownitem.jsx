@@ -13,12 +13,23 @@ export default function CountdownItem(props) {
     setTaskName(event.target.value)
   }
 
+  function onKeyPress(event) {
+    const key = event.which || event.keyCode
+    if (key === 13 ) {
+      setTaskEditing(false)
+    }
+  }
 
-  
+  function onTextEditorBlur(event) {
+    setTaskEditing(false)
+  }
+
+  let editor = <input value={TaskName} onChange={OnTextBoxChange} onKeyPress={onKeyPress} onBlur={onTextEditorBlur}/>
+  let textDisplay = <p>{TaskName}</p>
 
   return (
     <div>
-      <div onClick={(event) => {ChangeName(event)}}>Task: <input value={TaskName} onChange={OnTextBoxChange}/></div>
+      <div onClick={(event) => {ChangeName(event)}}>{TaskEditing ? editor : textDisplay}</div>
       <h3>Time left: XX:XX</h3>
     </div>
   )

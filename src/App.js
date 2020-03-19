@@ -1,6 +1,5 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 import ItemsList from './components/itemslist'
 
 function App() {
@@ -16,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

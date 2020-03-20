@@ -62,7 +62,7 @@ export default function CountDownTimer(props) {
   let minutes = Math.floor((timeRemaining / 60) % 60)
   let seconds = timeRemaining % 60
 
-  const editor = <input value={timeInputString} ref={inputRef} onChange={OnTimeBoxChange} onKeyPress={onKeyPress} onBlur={onTimeEditorBlur}/>
+  const editor = <input value={timeInputString} type="number" ref={inputRef} onChange={OnTimeBoxChange} onKeyPress={onKeyPress} onBlur={onTimeEditorBlur}/>
 
   const timeDisplay = <div onClick={ClickBox}>{hours} : {minutes} : {seconds}</div>
 

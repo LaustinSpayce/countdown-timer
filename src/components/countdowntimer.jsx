@@ -29,23 +29,32 @@ export default function CountDownTimer(props) {
   }
 
   function OnTimeBoxChange(event) {
-    setTimeInputString(event.target.value)
+    if (event.target.value >= 0 && event.target.value.length < 7) {
+      setTimeInputString(event.target.value)
+    }
   }
 
+  // If you click away it commits
   function onTimeEditorBlur(event){
-    ParseTimeInput()
+    ParseTimeInput(event)
   }
 
   function onKeyPress(event) {
     const key = event.which || event.keyCode
     if (key === 13 ) {
-      ParseTimeInput()
+      ParseTimeInput(event)
     }
   }
 
+  function soundAlarm() {
+    console.log('times is up!')
+  }
+
   useInterval(() => {
-    if(timeRemaining <= 0) {
+    if(timeRemaining <= 1) {
       setIsRunning(false)
+      setTimeRemaining(0)
+      soundAlarm()
     } else {
       setTimeRemaining(timeRemaining - 1)
     }

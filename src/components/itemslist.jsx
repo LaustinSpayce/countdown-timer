@@ -5,7 +5,7 @@ export default function ItemsList(props) {
 
   return (
     <div>
-      <p>Here's a list of items:</p>
+      <h2>Here's a list of items:</h2>
       <CountdownItem/>
     </div>
   )

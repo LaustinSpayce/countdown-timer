@@ -42,7 +42,8 @@ export default function CountdownItem(props) {
 
   return (
     <div>
-      <div onClick={(event) => {ClickTask(event)}}>{taskEditing ? editor : textDisplay}</div>
+      <div onClick={(event) => {ClickTask(event)}}
+      className='text-center'>{taskEditing ? editor : textDisplay}</div>
       <CountDownTimer />
     </div>
   )

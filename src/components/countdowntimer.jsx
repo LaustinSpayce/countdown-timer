@@ -70,7 +70,7 @@ export default function CountDownTimer(props) {
   let minutes = ((Math.floor((timeRemaining / 60) % 60))).toString().padStart(2, '0')
   let seconds = (timeRemaining % 60).toString().padStart(2, '0')
 
-  const editor = <div><input className='text-6xl m-12 w-auto' value={timeInputString} type="number" ref={inputRef} onChange={OnTimeBoxChange} onKeyPress={onKeyPress} onBlur={onTimeEditorBlur}/></div>
+  const editor = <div><input className='text-center bg-gray-200 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-6xl' value={timeInputString} type="number" ref={inputRef} onChange={OnTimeBoxChange} onKeyPress={onKeyPress} onBlur={onTimeEditorBlur}/></div>
 
   const timeDisplay = <div className='text-6xl' onClick={ClickBox}>{hours} : {minutes} : {seconds}</div>
 

@@ -1,13 +1,14 @@
 import React from 'react'
 import ItemsList from './components/itemslist'
 
+const backgroundStyle = {
+  backgroundImage: 'url(https://picsum.photos/1920/1080)'
+}
+
 function App() {
   return (
-    <div>
+    <div className="bg-fixed h-screen" style={backgroundStyle}>
       <div>
-        <h1>
-          The whole app fits in here
-        </h1>
         <ItemsList />
       </div>
     </div>

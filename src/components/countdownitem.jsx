@@ -37,8 +37,8 @@ export default function CountdownItem(props) {
     }
   }, [taskEditing])
 
-  const editor = <input className='text-center bg-gray-200 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-4xl' value={taskName} ref={inputRef} onChange={OnTextBoxChange} onKeyPress={onKeyPress} onBlur={onTextEditorBlur}/>
-  const textDisplay = <p className='text-4xl py-2 px-4 leading-tight'>{taskName}</p>
+  const editor = <input className='font-sans text-center bg-gray-200 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-4xl' value={taskName} ref={inputRef} onChange={OnTextBoxChange} onKeyPress={onKeyPress} onBlur={onTextEditorBlur}/>
+  const textDisplay = <p className='font-sans text-4xl py-2 px-4 leading-tight'>{taskName}</p>
 
   return (
     <div>

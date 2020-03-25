@@ -72,7 +72,7 @@ export default function CountDownTimer(props) {
 
   const editor = <div><input className='text-center bg-gray-200 appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-6xl' value={timeInputString} type="number" ref={inputRef} onChange={OnTimeBoxChange} onKeyPress={onKeyPress} onBlur={onTimeEditorBlur}/></div>
 
-  const timeDisplay = <div className='text-6xl' onClick={ClickBox}>{hours} : {minutes} : {seconds}</div>
+  const timeDisplay = <div className='text-6xl' onClick={ClickBox}>{hours}:{minutes}:{seconds}</div>
 
   return (
     <div className='text-center'>

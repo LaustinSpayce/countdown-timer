@@ -3,7 +3,8 @@ import CountdownItem from './countdownitem'
 
 const boxColour = {
   backgroundColor: '#EEEEEE66',
-  backdropFilter: 'blur(10px)'
+  backdropFilter: 'blur(10px)',
+  WebkitBackdropFilter: 'blur(10px)'
 }
 
 export default function ItemsList(props) {
